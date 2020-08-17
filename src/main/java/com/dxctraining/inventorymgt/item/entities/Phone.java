@@ -11,13 +11,13 @@ public class Phone extends Item{
 	@Id
 	@GeneratedValue
 	private int id;
-	private int storageSpace;
+	private int storageMemory;
 	public Phone() {
 		
 	}
-	public Phone(String name,Supplier supplier,int storageSpace) {
+	public Phone(String name,Supplier supplier,int storageMemory) {
 		super(name,supplier);
-		this.storageSpace=storageSpace;
+		this.storageMemory=storageMemory;
 	}
 	public int getId() {
 		return id;
@@ -25,11 +25,11 @@ public class Phone extends Item{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getStorageSpace() {
-		return storageSpace;
+	public int getStorageMemory() {
+		return storageMemory;
 	}
-	public void setStorageSpace(int storageSpace) {
-		this.storageSpace = storageSpace;
+	public void setStorageSpace(int storageMemory) {
+		this.storageMemory = storageMemory;
 	}
 	@Override
     public boolean equals(Object o) {

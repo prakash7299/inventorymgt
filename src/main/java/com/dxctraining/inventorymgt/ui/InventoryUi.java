@@ -85,7 +85,7 @@ public class InventoryUi {
 
 	private void phoneitem(Item item) {
 		Phone pitem=(Phone)item;
-		System.out.println("Phone name :"+pitem.getItemname()+"Supplier :"+pitem.getSupplier()+"Storage :"+pitem.getStorageSpace());
+		System.out.println("Phone name :"+pitem.getItemname()+"Supplier :"+pitem.getSupplier()+"Storage :"+pitem.getStorageMemory());
 		
 	}
 
