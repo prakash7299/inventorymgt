@@ -14,15 +14,15 @@ public class Item {
 	@Id
 	@GeneratedValue
 	private int id;
-	private String name;
+	private String itemname;
 	
 	@ManyToOne
 	private Supplier supplier;
 	public Item() {
 		
 	}
-	public Item(String name,Supplier supplier) {
-		this.name=name;
+	public Item(String itemname,Supplier supplier) {
+		this.itemname=itemname;
 		this.supplier=supplier;
 	}
 	
@@ -32,11 +32,12 @@ public class Item {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	
+	public String getItemname() {
+		return itemname;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setItemname(String itemname) {
+		this.itemname = itemname;
 	}
 	public Supplier getSupplier() {
 		return supplier;

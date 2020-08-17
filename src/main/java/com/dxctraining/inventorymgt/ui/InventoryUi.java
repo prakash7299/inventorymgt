@@ -57,7 +57,7 @@ public class InventoryUi {
 			System.out.println("Supplier :"+fetched.getId()+"name :"+fetched.getName());
 			Item fetchedItem=service2.findItemById(id2);
 			Supplier supplierinfo=fetchedItem.getSupplier();
-			System.out.println("Item id"+fetchedItem.getId()+"Item name"+fetchedItem.getName()+"Supplier name :"+supplierinfo.getName());
+			System.out.println("Item id"+fetchedItem.getId()+"Item name"+fetchedItem.getItemname()+"Supplier name :"+supplierinfo.getName());
 			for(Item item:list) {
 				display(item);
 			}
@@ -78,20 +78,20 @@ public class InventoryUi {
 		if(item instanceof Phone) {
 			phoneitem(item);
 		}
-		System.out.println("name :"+item.getName()+"Supplier :"+item.getSupplier());
+		System.out.println("name :"+item.getItemname()+"Supplier :"+item.getSupplier());
 		
 		
 	}
 
 	private void phoneitem(Item item) {
 		Phone pitem=(Phone)item;
-		System.out.println("Phone name :"+pitem.getName()+"Supplier :"+pitem.getSupplier()+"Storage :"+pitem.getStorageSpace());
+		System.out.println("Phone name :"+pitem.getItemname()+"Supplier :"+pitem.getSupplier()+"Storage :"+pitem.getStorageSpace());
 		
 	}
 
 	private void computeritem(Item item) {
 		Computer citem=(Computer)item;
-		System.out.println("Computer name :"+citem.getName()+"Supplier :"+citem.getSupplier()+"Desk Size :"+citem.getDeskSize());
+		System.out.println("Computer name :"+citem.getItemname()+"Supplier :"+citem.getSupplier()+"Desk Size :"+citem.getDeskSize());
 		
 	}
 }
