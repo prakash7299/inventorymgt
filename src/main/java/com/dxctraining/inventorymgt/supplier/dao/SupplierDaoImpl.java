@@ -2,13 +2,13 @@ package com.dxctraining.inventorymgt.supplier.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 
 import org.springframework.stereotype.Repository;
 
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 import com.dxctraining.inventorymgt.supplier.exceptions.SupplierNotFoundException;
-
 @Repository
 public class SupplierDaoImpl implements ISupplierDao {
 	

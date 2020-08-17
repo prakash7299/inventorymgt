@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dxctraining.inventorymgt.supplier.dao.ISupplierDao;
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 import com.dxctraining.inventorymgt.supplier.exceptions.InvalidArgumentException;
-import com.dxctraining.inventorymgt.supplier.exceptions.SupplierNotFoundException;
+
 
 @Transactional
 @Service

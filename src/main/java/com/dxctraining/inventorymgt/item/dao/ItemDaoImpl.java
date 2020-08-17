@@ -1,9 +1,12 @@
 package com.dxctraining.inventorymgt.item.dao;
+
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
+
 
 import com.dxctraining.inventorymgt.item.entities.Item;
 import com.dxctraining.inventorymgt.item.exceptions.ItemNotFoundException;
@@ -32,6 +35,5 @@ public class ItemDaoImpl implements IItemDao{
 	     entityManager.remove(item);
 	    }
 
-	
 
 }

@@ -4,20 +4,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 @Entity
+@Table(name="supplier_det")
 public class Supplier {
 	@Id
 	@GeneratedValue
 	private int id;
 	private String name;
 	
+     public Supplier() {
+	
+         }
 	public Supplier(String name) {
 		this.name=name;
 	}
-	public Supplier() {
-		
-	}
+	
 	public int getId() {
 		return id;
 	}
