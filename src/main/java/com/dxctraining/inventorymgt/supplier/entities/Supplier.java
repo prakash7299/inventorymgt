@@ -12,7 +12,7 @@ public class Supplier {
 	private int id;
 	private String name;
 	
-	public Supplier(int id,String name) {
+	public Supplier(String name) {
 		this.id=id;
 		this.name=name;
 	}

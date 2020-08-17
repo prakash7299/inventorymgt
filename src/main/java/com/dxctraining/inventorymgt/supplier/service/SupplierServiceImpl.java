@@ -34,7 +34,7 @@ public class SupplierServiceImpl implements ISupplierService {
 
 	   public void validate(Object arg){
 	        if(arg==null){
-	            throw new InvalidArgumentException("argument is null");
+	            throw new InvalidArgumentException("Argument is null change it");
 	        }
 	    }
 
