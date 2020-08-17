@@ -4,6 +4,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.dxctraining.inventorymgt.item.entities.Computer;
 import com.dxctraining.inventorymgt.item.entities.Item;
 import com.dxctraining.inventorymgt.item.exceptions.ItemNotFoundException;
 import com.dxctraining.inventorymgt.item.service.IItemService;
@@ -26,13 +27,17 @@ public class InventoryUi {
 		try {
 			Supplier supplier1=new Supplier("praveen");
 			supplier1=service1.add(supplier1);
+			Supplier supplier2=new Supplier("prakash");
+			supplier2=service1.add(supplier2);
 			Item item1=new Item("ggadget",supplier1);
 			Item item2=new Item("ECEproduct",supplier1);
 			Item item3=new Item("Mechproduct",supplier1);
+			Computer item4=new Computer("Dell",supplier2,200);
 			service2.add(item2);
 			service2.add(item1);
 			service2.add(item3);
-			service2.remove(2);
+			service2.add(item4);
+			service2.remove(3);
 			int id2=item1.getId();
 			int id1 = supplier1.getId();
 			Supplier fetched = service1.findSupplierById(id1);
