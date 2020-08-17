@@ -1,5 +1,7 @@
 package com.dxctraining.inventorymgt.ui;
 
+import java.util.*;
+
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,8 +13,9 @@ import com.dxctraining.inventorymgt.item.exceptions.ItemNotFoundException;
 import com.dxctraining.inventorymgt.item.service.IItemService;
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 import com.dxctraining.inventorymgt.supplier.exceptions.InvalidArgumentException;
-import com.dxctraining.inventorymgt.supplier.exceptions.SupplierNotFoundException;
 import com.dxctraining.inventorymgt.supplier.service.ISupplierService;
+
+
 
 @Component
 public class InventoryUi {
@@ -26,21 +29,28 @@ public class InventoryUi {
 	@PostConstruct
 	private void runapp() {
 		try {
+			List<Item> list=new ArrayList<>();
 			Supplier supplier1=new Supplier("praveen");
 			supplier1=service1.add(supplier1);
 			Supplier supplier2=new Supplier("prakash");
 			supplier2=service1.add(supplier2);
 			Item item1=new Item("ggadget",supplier1);
+			list.add(item1);
 			Item item2=new Item("ECEproduct",supplier1);
+			list.add(item2);
 			Item item3=new Item("Mechproduct",supplier1);
+			list.add(item3);
 			Computer item4=new Computer("Dell",supplier2,200);
+			list.add(item4);
 			Phone item5=new Phone("micromax",supplier2,500);
+			list.add(item5);
 			service2.add(item2);
 			service2.add(item1);
 			service2.add(item3);
 			service2.add(item4);
 			service2.add(item5);
 			service2.remove(3);
+			list.remove(item1);
 			int id2=item5.getId();
 			int id1 = supplier1.getId();
 			Supplier fetched = service1.findSupplierById(id1);
@@ -48,6 +58,9 @@ public class InventoryUi {
 			Item fetchedItem=service2.findItemById(id2);
 			Supplier supplierinfo=fetchedItem.getSupplier();
 			System.out.println("Item id"+fetchedItem.getId()+"Item name"+fetchedItem.getName()+"Supplier name :"+supplierinfo.getName());
+			for(Item item:list) {
+				display(item);
+			}
 		}catch (InvalidArgumentException e) {
 			e.printStackTrace();
 		}
@@ -57,4 +70,28 @@ public class InventoryUi {
 		}
 
 }
+
+	private void display(Item item) {
+		if(item instanceof Computer) {
+			computeritem(item);
+		}
+		if(item instanceof Phone) {
+			phoneitem(item);
+		}
+		System.out.println("name :"+item.getName()+"Supplier :"+item.getSupplier());
+		
+		
+	}
+
+	private void phoneitem(Item item) {
+		Phone pitem=(Phone)item;
+		System.out.println("Phone name :"+pitem.getName()+"Supplier :"+pitem.getSupplier()+"Storage :"+pitem.getStorageSpace());
+		
+	}
+
+	private void computeritem(Item item) {
+		Computer citem=(Computer)item;
+		System.out.println("Computer name :"+citem.getName()+"Supplier :"+citem.getSupplier()+"Desk Size :"+citem.getDeskSize());
+		
+	}
 }
