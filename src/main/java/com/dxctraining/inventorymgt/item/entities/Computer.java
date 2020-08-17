@@ -10,13 +10,13 @@ public class Computer extends Item {
 	@Id
 	@GeneratedValue
 	private int id;
-	private int deskSize;
+	private int deskSpace;
 	public Computer() {
 		
 	}
-	public Computer(String name,Supplier supplier,int deskSize) {
+	public Computer(String name,Supplier supplier,int deskSpace) {
 		super(name,supplier);
-		this.deskSize=deskSize;
+		this.deskSpace=deskSpace;
 	}
 	public int getId() {
 		return id;
@@ -24,11 +24,11 @@ public class Computer extends Item {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getDeskSize() {
-		return deskSize;
+	public int getDeskSpace() {
+		return deskSpace;
 	}
-	public void setDeskSize(int deskSize) {
-		this.deskSize = deskSize;
+	public void setDeskSpace(int deskSpace) {
+		this.deskSpace = deskSpace;
 	}
 	@Override
     public boolean equals(Object o) {

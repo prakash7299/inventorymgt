@@ -91,7 +91,7 @@ public class InventoryUi {
 
 	private void computeritem(Item item) {
 		Computer citem=(Computer)item;
-		System.out.println("Computer name :"+citem.getItemname()+"Supplier :"+citem.getSupplier()+"Desk Size :"+citem.getDeskSize());
+		System.out.println("Computer name :"+citem.getItemname()+"Supplier :"+citem.getSupplier()+"Desk Size :"+citem.getDeskSpace());
 		
 	}
 }
