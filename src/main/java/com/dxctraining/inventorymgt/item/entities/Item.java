@@ -1,22 +1,23 @@
-package com.dxctraining.inventorymgt.supplier.entities;
+package com.dxctraining.inventorymgt.item.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.dxctraining.inventorymgt.supplier.entities.Supplier;
+
 @Entity
-public class Supplier {
+@Table(name="items")
+public class Item {
 	@Id
 	@GeneratedValue
-	private int id;
-	private String name;
-	
-	public Supplier(String name) {
+	int id;
+	String name;
+	Supplier supplier;
+	public Item(String name,Supplier supplier) {
 		this.name=name;
-	}
-	public Supplier() {
-		
+		this.supplier=supplier;
 	}
 	public int getId() {
 		return id;
@@ -30,6 +31,12 @@ public class Supplier {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public Supplier getSupplier() {
+		return supplier;
+	}
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
 	@Override
 	public int hashCode() {
 		return id;
@@ -40,9 +47,9 @@ public class Supplier {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Supplier that = (Supplier) o;
+        Item that = (Item) o;
         return id == that.id;
 		
 	}
-	
+
 }
