@@ -5,18 +5,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
+
 @Entity
-public class Computer extends Item {
+public class Phone extends Item{
 	@Id
 	@GeneratedValue
 	private int id;
-	private int deskSize;
-	public Computer() {
+	private int storageSpace;
+	public Phone() {
 		
 	}
-	public Computer(String name,Supplier supplier,int deskSize) {
+	public Phone(String name,Supplier supplier,int storageSpace) {
 		super(name,supplier);
-		this.deskSize=deskSize;
+		this.storageSpace=storageSpace;
 	}
 	public int getId() {
 		return id;
@@ -24,11 +25,11 @@ public class Computer extends Item {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getDeskSize() {
-		return deskSize;
+	public int getStorageSpace() {
+		return storageSpace;
 	}
-	public void setDeskSize(int deskSize) {
-		this.deskSize = deskSize;
+	public void setStorageSpace(int storageSpace) {
+		this.storageSpace = storageSpace;
 	}
 	@Override
     public boolean equals(Object o) {
@@ -36,7 +37,7 @@ public class Computer extends Item {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Computer that = (Computer) o;
+        Phone that = (Phone) o;
         return this.id == that.id;
     }
 
@@ -44,7 +45,5 @@ public class Computer extends Item {
     public int hashCode() {
         return id;
     }
-	
-	
 
 }
