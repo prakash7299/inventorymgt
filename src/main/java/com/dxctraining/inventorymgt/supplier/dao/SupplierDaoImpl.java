@@ -13,11 +13,11 @@ import com.dxctraining.inventorymgt.supplier.exceptions.SupplierNotFoundExceptio
 public class SupplierDaoImpl implements ISupplierDao {
 	
 	@PersistenceContext
-    private EntityManager entityManager;
+    private EntityManager entityManager1;
 	
 	 @Override
 	    public Supplier findSupplierById(int id) {
-	        Supplier supplier=entityManager.find(Supplier.class,id);
+	        Supplier supplier=entityManager1.find(Supplier.class,id);
 	        if(supplier==null){
 	            throw new SupplierNotFoundException("supplier not found for id="+id);
 	        }
@@ -25,13 +25,13 @@ public class SupplierDaoImpl implements ISupplierDao {
 	    }
 	 @Override
 	    public Supplier add(Supplier supplier) {
-	        entityManager.persist(supplier);
+	        entityManager1.persist(supplier);
 	        return supplier;
 	    }
 	 @Override
 	    public void remove(int id) {
 	     Supplier supplier= findSupplierById(id) ;
-	     entityManager.remove(supplier);
+	     entityManager1.remove(supplier);
 	    }
 
 }

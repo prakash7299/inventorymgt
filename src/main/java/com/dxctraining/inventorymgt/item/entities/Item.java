@@ -3,6 +3,8 @@ package com.dxctraining.inventorymgt.item.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -10,6 +12,7 @@ import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 
 @Entity
 @Table(name="items_det")
+@Inheritance(strategy =InheritanceType.JOINED)
 public class Item {
 	@Id
 	@GeneratedValue
@@ -52,7 +55,7 @@ public class Item {
             return false;
         }
         Item that = (Item) o;
-        return id == that.id;
+        return this.id == that.id;
     }
 
     @Override

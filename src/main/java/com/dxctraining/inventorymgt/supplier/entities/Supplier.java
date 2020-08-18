@@ -10,13 +10,13 @@ public class Supplier {
 	@Id
 	@GeneratedValue
 	private int id;
-	private String name;
+	private String sname;
 	
      public Supplier() {
 	
          }
-	public Supplier(String name) {
-		this.name=name;
+	public Supplier(String sname) {
+		this.sname=sname;
 	}
 	
 	public int getId() {
@@ -26,10 +26,10 @@ public class Supplier {
 		this.id = id;
 	}
 	public String getName() {
-		return name;
+		return sname;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String sname) {
+		this.sname = sname;
 	}
 	@Override
 	public int hashCode() {
