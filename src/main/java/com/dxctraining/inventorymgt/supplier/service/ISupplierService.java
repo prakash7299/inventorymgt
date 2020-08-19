@@ -1,5 +1,7 @@
 package com.dxctraining.inventorymgt.supplier.service;
 
+import java.util.List;
+
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 
 public interface ISupplierService {
@@ -8,5 +10,6 @@ public interface ISupplierService {
     Supplier add(Supplier supplier);
 
     void remove(int id);
+    List<Supplier> allSuppliers();
 
 }

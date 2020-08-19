@@ -2,6 +2,8 @@ package com.dxctraining.inventorymgt.supplier.service;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +38,11 @@ public class SupplierServiceImpl implements ISupplierService {
 	        if(arg==null){
 	            throw new InvalidArgumentException("Argument is null change it");
 	        }
+	    }
+	   @Override
+	    public List<Supplier> allSuppliers(){
+	        List<Supplier>allsuppliers=dao.allSuppliers();
+	        return allsuppliers;
 	    }
 
 }
