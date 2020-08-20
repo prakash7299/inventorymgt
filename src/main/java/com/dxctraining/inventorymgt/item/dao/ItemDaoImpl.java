@@ -1,15 +1,19 @@
 package com.dxctraining.inventorymgt.item.dao;
 
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
-
+import com.dxctraining.inventorymgt.item.entities.Computer;
 import com.dxctraining.inventorymgt.item.entities.Item;
 import com.dxctraining.inventorymgt.item.exceptions.ItemNotFoundException;
+import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 
 @Repository
 public class ItemDaoImpl implements IItemDao{
@@ -33,6 +37,13 @@ public class ItemDaoImpl implements IItemDao{
 	    public void remove(int id) {
 	     Item item= findItemById(id) ;
 	     entityManager.remove(item);
+	    }
+	 @Override
+	    public List<Computer> allComputer() {
+	        String jpaql="from Computer";
+	        TypedQuery<Computer>query=entityManager.createQuery(jpaql,Computer.class);
+	        List<Computer>computerList=query.getResultList();
+	        return computerList;
 	    }
 
 

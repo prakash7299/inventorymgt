@@ -1,6 +1,7 @@
 package com.dxctraining.inventorymgt.item.entities;
 
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -14,8 +15,8 @@ public class Computer extends Item {
 	public Computer() {
 		
 	}
-	public Computer(String name,Supplier supplier,int deskSpace) {
-		super(name,supplier);
+	public Computer(String itemname,Supplier supplier,int deskSpace) {
+		super(itemname,supplier);
 		this.deskSpace=deskSpace;
 	}
 	public int getId() {
