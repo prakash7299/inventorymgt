@@ -44,8 +44,10 @@ public class InventoryUi {
 			list.add(item4);
 			Computer item6=new Computer("Lenova",supplier2,900);
 			Phone item5=new Phone("micromax",supplier2,500);
+			Phone item7=new Phone("samsung",supplier2,800);
 			list.add(item5);
 			service2.add(item6);
+			service2.add(item7);
 			service2.add(item2);
 			service2.add(item1);
 			service2.add(item3);

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dxctraining.inventorymgt.item.entities.Computer;
 import com.dxctraining.inventorymgt.item.entities.Item;
+import com.dxctraining.inventorymgt.item.entities.Phone;
 import com.dxctraining.inventorymgt.item.exceptions.ItemNotFoundException;
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 
@@ -44,6 +45,14 @@ public class ItemDaoImpl implements IItemDao{
 	        TypedQuery<Computer>query=entityManager.createQuery(jpaql,Computer.class);
 	        List<Computer>computerList=query.getResultList();
 	        return computerList;
+	    }
+	 @Override
+	    public List<Phone> allPhone() {
+	        String jpaql="from Phone";
+	        System.out.println("inside 4");
+	        TypedQuery<Phone>query=entityManager.createQuery(jpaql,Phone.class);
+	        List<Phone>phoneList=query.getResultList();
+	        return phoneList;
 	    }
 
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.dxctraining.inventorymgt.item.entities.Computer;
 import com.dxctraining.inventorymgt.item.entities.Item;
+import com.dxctraining.inventorymgt.item.entities.Phone;
 
 public interface IItemDao {
 	Item findItemById(int id);
@@ -12,4 +13,5 @@ public interface IItemDao {
 
     void remove(int id);
     List<Computer> allComputer();
+    List<Phone> allPhone();
 }
