@@ -2,24 +2,42 @@ package com.dxctraining.inventorymgt.item.entities;
 
 import javax.persistence.Entity;
 
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 @Entity
-@Table(name ="computer_data")
-public class Computer extends Item {
+@Table(name ="computers_information")
+public class Computer {
 	@Id
 	@GeneratedValue
 	private int id;
 	private int deskSpace;
+	private String itemName;
+	@ManyToOne
+	private Supplier supplier;
 	public Computer() {
 		
 	}
-	public Computer(String itemname,Supplier supplier,int deskSpace) {
-		super(itemname,supplier);
+	public Computer(String itemName,int deskSpace) {
+		this.itemName=itemName;
 		this.deskSpace=deskSpace;
+	}
+	
+	public Supplier getSupplier() {
+		return supplier;
+	}
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+	public String getItemname() {
+		return itemName;
+	}
+	public void setItemname(String itemName) {
+		this.itemName = itemName;
 	}
 	public int getId() {
 		return id;
@@ -33,6 +51,7 @@ public class Computer extends Item {
 	public void setDeskSpace(int deskSpace) {
 		this.deskSpace = deskSpace;
 	}
+	
 	@Override
     public boolean equals(Object o) {
         if (this == o) return true;

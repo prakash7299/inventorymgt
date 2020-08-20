@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dxctraining.inventorymgt.item.dao.IItemDao;
 import com.dxctraining.inventorymgt.item.entities.Computer;
-import com.dxctraining.inventorymgt.item.entities.Item;
 import com.dxctraining.inventorymgt.item.entities.Phone;
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 import com.dxctraining.inventorymgt.supplier.exceptions.InvalidArgumentException;
@@ -21,19 +20,34 @@ public class ItemServiceImpl implements IItemService{
     private IItemDao dao;
 	
 	@Override
-    public Item findItemById(int id) {
-       Item item= dao.findItemById(id);
-        return item;
+    public Computer findComputerById(int id) {
+       Computer computer= dao.findComputerById(id);
+        return computer;
+    }
+	@Override
+    public Phone findPhoneById(int id) {
+       Phone phone= dao.findPhoneById(id);
+        return phone;
     }
 	 @Override
-	    public Item add(Item item) {
-	        validate(item);
-	        item=dao.add(item);
-	        return item;
+	    public Computer add(Computer computer) {
+	        validate(computer);
+	        computer=dao.add(computer);
+	        return computer;
 	    }
 	 @Override
-	    public void remove(int id) {
-	       dao.remove(id);
+	    public Phone add(Phone phone) {
+	        validate(phone);
+	        phone=dao.add(phone);
+	        return phone;
+	    }
+	 @Override
+	    public void removeComputer(int id) {
+	       dao.removeComputer(id);
+	    }
+	 @Override
+	    public void removePhone(int id) {
+	       dao.removePhone(id);
 	    }
 	   public void validate(Object arg){
 	        if(arg==null){

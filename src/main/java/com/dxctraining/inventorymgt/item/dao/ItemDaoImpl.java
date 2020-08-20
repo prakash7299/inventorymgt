@@ -11,7 +11,6 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
 import com.dxctraining.inventorymgt.item.entities.Computer;
-import com.dxctraining.inventorymgt.item.entities.Item;
 import com.dxctraining.inventorymgt.item.entities.Phone;
 import com.dxctraining.inventorymgt.item.exceptions.ItemNotFoundException;
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
@@ -22,22 +21,40 @@ public class ItemDaoImpl implements IItemDao{
     private EntityManager entityManager;
 	
 	 @Override
-	    public Item findItemById(int id) {
-	        Item item=entityManager.find(Item.class,id);
-	        if(item==null){
-	            throw new ItemNotFoundException("item not found for id="+id);
+	    public Computer findComputerById(int id) {
+	        Computer computer=entityManager.find(Computer.class,id);
+	        if(computer==null){
+	            throw new ItemNotFoundException("computer not found for id="+id);
 	        }
-	        return item;
+	        return computer;
 	    }
 	 @Override
-	    public Item add(Item item) {
-	        entityManager.persist(item);
-	        return item;
+	    public Phone findPhoneById(int id) {
+	        Phone phone=entityManager.find(Phone.class,id);
+	        if(phone==null){
+	            throw new ItemNotFoundException("phone not found for id="+id);
+	        }
+	        return phone;
 	    }
 	 @Override
-	    public void remove(int id) {
-	     Item item= findItemById(id) ;
-	     entityManager.remove(item);
+	    public Computer add(Computer computer) {
+	        entityManager.persist(computer);
+	        return computer;
+	    }
+	 @Override
+	    public Phone add(Phone phone) {
+	        entityManager.persist(phone);
+	        return phone;
+	    }
+	 @Override
+	    public void removeComputer(int id) {
+	     Computer computer= findComputerById(id) ;
+	     entityManager.remove(computer);
+	    }
+	 @Override
+	    public void removePhone(int id) {
+	     Phone phone= findPhoneById(id) ;
+	     entityManager.remove(phone);
 	    }
 	 @Override
 	    public List<Computer> allComputer() {

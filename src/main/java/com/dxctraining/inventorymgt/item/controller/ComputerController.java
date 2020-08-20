@@ -7,11 +7,13 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.dxctraining.inventorymgt.item.dto.CreateComputerRequest;
 import com.dxctraining.inventorymgt.item.entities.Computer;
-import com.dxctraining.inventorymgt.item.entities.Item;
 import com.dxctraining.inventorymgt.item.service.IItemService;
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 import com.dxctraining.inventorymgt.supplier.service.ISupplierService;
@@ -28,7 +30,7 @@ public class ComputerController {
 	public void init() {
 		Supplier supplier1=new Supplier("karthik","abcde");
 		service2.add(supplier1);
-		Computer computer1=new Computer("Dell",supplier1,400);
+		Computer computer1=new Computer("Dell",400);
 		service.add(computer1);
 	}
 	
@@ -37,6 +39,37 @@ public class ComputerController {
     	 List<Computer>computer=service.allComputer();
         ModelAndView modelAndView=new ModelAndView("clist","computer",computer);
         return modelAndView;
+    }
+	@GetMapping("/viewComputerDet")
+    public ModelAndView computerDetails(@RequestParam("id")int id){
+       Computer computer=service.findComputerById(id);
+       ModelAndView modelAndView=new ModelAndView("cdetails","computer",computer);
+       return modelAndView;
+    }
+	@GetMapping("/addComputer")
+    public ModelAndView computerPage(){
+        ModelAndView modelView=new ModelAndView("addComputer");
+        return modelView;
+    }
+    @GetMapping("/processAddComputer")
+    public ModelAndView processRegisterComputer(@RequestParam("computername") String name,@RequestParam("deskSpace") int deskSpace){
+        Computer computer=new Computer(name,deskSpace);
+        computer=service.add(computer);
+        ModelAndView modelView=new ModelAndView("cdetails","computer",computer);
+        return modelView;
+    }
+    @GetMapping("/postAddComputer")
+    public ModelAndView postRegisteringComputer(){
+        CreateComputerRequest computerData=new CreateComputerRequest();
+        ModelAndView modelView=new ModelAndView("postAddComputer","computer",computerData);
+        return modelView;
+    }
+    @PostMapping("/processpostaddComputer")
+    public ModelAndView processRegisterComputer(@ModelAttribute("computer") CreateComputerRequest computerData){
+        Computer computer=new Computer(computerData.getItemname(),computerData.getDeskSpace());
+        computer=service.add(computer);
+        ModelAndView mv=new ModelAndView("cdetails","computer",computer);
+        return mv;
     }
 
 

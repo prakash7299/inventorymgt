@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dxctraining.inventorymgt.item.entities.Computer;
@@ -27,7 +28,7 @@ public class PhoneController {
 	@PostConstruct
 	public void init() {
 		Supplier supplier1=new Supplier("girija","12345");
-		Phone phone1=new Phone("samsung",supplier1,300);
+		Phone phone1=new Phone("samsung",300);
 		service2.add(supplier1);
 		service.add(phone1);
 	}
@@ -36,6 +37,12 @@ public class PhoneController {
     	 List<Phone>phone=service.allPhone();
         ModelAndView modelAndView=new ModelAndView("plist","phone",phone);
         return modelAndView;
+    }
+	@GetMapping("/viewPhoneDet")
+    public ModelAndView phoneDetails(@RequestParam("id")int id){
+       Phone phone=service.findPhoneById(id);
+       ModelAndView modelAndView=new ModelAndView("pdetails","phone",phone);
+       return modelAndView;
     }
 
 }

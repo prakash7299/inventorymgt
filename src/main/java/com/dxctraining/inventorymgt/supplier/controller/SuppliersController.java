@@ -35,7 +35,7 @@ public class SuppliersController {
 	}
 	
 	@GetMapping("/supplierprofile")
-    public ModelAndView employeeDetails(@RequestParam("id")int id){
+    public ModelAndView supplierDetails(@RequestParam("id")int id){
 		
 		if(!session.isUserLoggedIn())
 		{
