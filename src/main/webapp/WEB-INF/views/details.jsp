@@ -8,11 +8,12 @@
 <head>
 <title>Supplier Details</title>
 </head>
-<body>
+<body><center>
 <h1>Supplier Details </h1>
 id is <c:out value="${supplier.id}"  />
 <br>
 name is <c:out value="${supplier.name}"  />
+</center>
 <br>
 </body>
 </html>
