@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import com.dxctraining.inventorymgt.item.entities.Item;
 
 @Entity
-@Table(name="suppliers")
+@Table(name="suppliers_data")
 public class Supplier {
 	@Id
 	@GeneratedValue

@@ -15,7 +15,7 @@
 
 <c:forEach items="${phone}"  var="phone">
 
-Id is :<c:out value="${phone.getId()}"  />
+Id is :<c:out value="${phone.id}"  />
 
 name is :<c:out value="${phone.getItemname()}"  />
 Supplier is :<c:out value="${phone.getSupplier().getName()}"  />

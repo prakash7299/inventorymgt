@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 
 @Entity
-@Table(name="items_det")
+@Table(name="items_data")
 @Inheritance(strategy =InheritanceType.JOINED)
 public class Item {
 	@Id

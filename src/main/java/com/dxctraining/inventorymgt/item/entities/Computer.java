@@ -4,9 +4,11 @@ import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 @Entity
+@Table(name ="computer_data")
 public class Computer extends Item {
 	@Id
 	@GeneratedValue
