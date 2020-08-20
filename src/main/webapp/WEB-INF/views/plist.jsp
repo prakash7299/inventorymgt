@@ -18,7 +18,7 @@
 Id is :<c:out value="${phone.getId()}"  />
 
 name is :<c:out value="${phone.getItemname()}"  />
-Supplier is :<c:out value="${phone.getSupplier()}"  />
+Supplier is :<c:out value="${phone.getSupplier().getName()}"  />
 StorageMemory is :<c:out value="${phone.getStorageMemory()}"  />
 
 
